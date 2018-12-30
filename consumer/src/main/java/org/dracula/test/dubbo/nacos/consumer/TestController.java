@@ -1,6 +1,7 @@
 package org.dracula.test.dubbo.nacos.consumer;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.dracula.test.dubbo.nacos.TestInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,15 @@ public class TestController {
         String sayHello = testInterface.sayHello(name);
         logger.info("in controller, "+sayHello);
         return sayHello;
+    }
+
+
+    @NacosValue(value = "${useLocalCache:false}", autoRefreshed = true)
+    private boolean useLocalCache;
+
+    @GetMapping("/testNacosConfig")
+    public boolean get() {
+        return useLocalCache;
     }
 
 }
