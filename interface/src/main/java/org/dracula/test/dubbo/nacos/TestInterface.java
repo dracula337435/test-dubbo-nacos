@@ -5,6 +5,11 @@ package org.dracula.test.dubbo.nacos;
  */
 public interface TestInterface {
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     String sayHello(String name);
 
 }
