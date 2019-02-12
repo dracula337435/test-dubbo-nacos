@@ -22,3 +22,10 @@ curl -X POST "http://127.0.0.1:8848/nacos/v1/cs/configs?dataId=example&group=DEF
 @NacosValue("${useLocalCache:false}", autoRefreshed = true)
 private boolean useLocalCache;
 ```
+
+nacos可以使用@Value拿到配置，通过actuator/env可以看到影响env，拉和推配置。
+但是@Value不会自动刷新
+
+Main上@NacosPropertySource(autoRefreshed = ...)，可被属性上的@NacosValue(autoRefreshed = true)覆盖。  
+
+属性上的@NacosValue可取到本地properties的值

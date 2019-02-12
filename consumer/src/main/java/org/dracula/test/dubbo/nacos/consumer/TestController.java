@@ -5,6 +5,8 @@ import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.dracula.test.dubbo.nacos.TestInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +36,30 @@ public class TestController {
     @GetMapping("/testNacosConfig")
     public boolean get() {
         return useLocalCache;
+    }
+
+    @Value("${useLocalCache}")
+    private String another;
+
+    @GetMapping("/testConfig")
+    public String getAnother() {
+        return another;
+    }
+
+    @Autowired
+    private TestProperites testProperites;
+
+    @GetMapping("/getB")
+    public String getB(){
+        return testProperites.getB();
+    }
+
+    @NacosValue(value="${d.e}")
+    private String e;
+
+    @GetMapping("/getE")
+    public String getE(){
+        return e;
     }
 
 }
