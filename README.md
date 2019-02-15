@@ -28,4 +28,6 @@ nacos可以使用@Value拿到配置，通过actuator/env可以看到影响env，
 
 Main上@NacosPropertySource(autoRefreshed = ...)，可被属性上的@NacosValue(autoRefreshed = true)覆盖。  
 
-属性上的@NacosValue可取到本地properties的值
+属性上的@NacosValue可取到本地properties的值  
+
+由于原理是影响了env，xml方式也可以拿到nacos中的配置项，但是推配置不生效，同@Value，见```another.xml```和```AnotherController```

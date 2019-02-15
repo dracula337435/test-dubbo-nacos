@@ -5,6 +5,7 @@ import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * @author dk
@@ -13,6 +14,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @DubboComponentScan
 @NacosPropertySource(dataId = "example", autoRefreshed = true)
 @EnableConfigurationProperties(TestProperites.class)
+@ImportResource("classpath:org/dracula/test/dubbo/nacos/consumer/another.xml")
 public class ConsumerMain {
 
     public static void main(String[] args){
