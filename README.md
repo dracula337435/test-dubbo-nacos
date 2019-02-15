@@ -31,3 +31,5 @@ Main上@NacosPropertySource(autoRefreshed = ...)，可被属性上的@NacosValue
 属性上的@NacosValue可取到本地properties的值  
 
 由于原理是影响了env，xml方式也可以拿到nacos中的配置项，但是推配置不生效，同@Value，见```another.xml```和```AnotherController```
+
+引入```hal-browser```，[入口地址](http://localhost:8080/webjars/hal-browser/3325375/browser.html)
