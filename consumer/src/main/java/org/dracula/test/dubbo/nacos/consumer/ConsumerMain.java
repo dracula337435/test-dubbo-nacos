@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ImportResource;
 @SpringBootApplication
 @DubboComponentScan
 @NacosPropertySource(dataId = "example", autoRefreshed = true)
-@EnableConfigurationProperties(TestProperites.class)
+@EnableConfigurationProperties({TestProperites.class, TestAutoRefreshedProperties.class})
 @ImportResource("classpath:org/dracula/test/dubbo/nacos/consumer/another.xml")
 public class ConsumerMain {
 

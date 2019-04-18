@@ -62,4 +62,12 @@ public class TestController {
         return e;
     }
 
+    @Autowired
+    private TestAutoRefreshedProperties testAutoRefreshedProperties;
+
+    @GetMapping("/a")
+    public String getA(){
+        return testAutoRefreshedProperties.getA();
+    }
+
 }
