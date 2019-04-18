@@ -33,7 +33,7 @@ public class TestController {
     @NacosValue(value = "${useLocalCache:false}", autoRefreshed = true)
     private boolean useLocalCache;
 
-    @GetMapping("/testNacosConfig")
+    @GetMapping("/testNacosConfigautoRefreshed")
     public boolean get() {
         return useLocalCache;
     }
@@ -41,7 +41,7 @@ public class TestController {
     @Value("${useLocalCache}")
     private String another;
 
-    @GetMapping("/testConfig")
+    @GetMapping("/testNacosConfigNonautoRefreshed")
     public String getAnother() {
         return another;
     }
